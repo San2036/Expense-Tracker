@@ -139,7 +139,6 @@ const FutureExpenseDemo = ({ setMessage }) => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(apiUrl('/auth/login'), credentials);
       const response = await axios.post(apiUrl('/api/expenses/future/process'), {}, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
