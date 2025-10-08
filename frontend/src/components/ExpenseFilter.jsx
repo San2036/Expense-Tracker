@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { exportExpensesByDate } from '../utils/exportUtils';
 import "../App.css";
+import { apiUrl } from '../utils/api';
 
 export default function ExpenseFilter({ setExpenses }) {
   const [date, setDate] = useState("");
@@ -9,7 +10,7 @@ export default function ExpenseFilter({ setExpenses }) {
 
   const handleFilter = async () => {
     if (!date) return;
-    const res = await axios.get(`http://127.0.0.1:5000/api/expenses/${date}`, {
+    const res = await axios.get(apiUrl(`/api/expenses/${date}`), {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

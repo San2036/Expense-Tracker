@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { apiUrl } from '../utils/api';
 
 const ExpenseEditModal = ({ expense, isOpen, onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
@@ -71,7 +72,8 @@ const ExpenseEditModal = ({ expense, isOpen, onClose, onSuccess }) => {
       console.log('Updating expense:', expense.id, 'with data:', updateData);
 
       const response = await axios.put(
-        `http://127.0.0.1:5000/api/expenses/update/${expense.id}`,
+        // ... existing code ...
+        apiUrl(`/api/expenses/update/${expense.id}`),
         updateData,
         {
           headers: {

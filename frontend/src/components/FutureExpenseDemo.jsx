@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import notificationService from '../services/notificationService';
+import { apiUrl } from '../utils/api';
 
 const FutureExpenseDemo = ({ setMessage }) => {
   const [demoData, setDemoData] = useState({
@@ -23,12 +24,12 @@ const FutureExpenseDemo = ({ setMessage }) => {
       if (!token) return;
 
       // Get future expenses
-      const futureResponse = await axios.get('http://127.0.0.1:5000/api/expenses/future', {
+      const futureResponse = await axios.get(apiUrl('/api/expenses/future'), {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
       // Get due expenses
-      const dueResponse = await axios.get('http://127.0.0.1:5000/api/expenses/future/due', {
+      const dueResponse = await axios.get(apiUrl('/api/expenses/future/due'), {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -109,7 +110,7 @@ const FutureExpenseDemo = ({ setMessage }) => {
       let created = 0;
       for (const expense of sampleExpenses) {
         try {
-          await axios.post('http://127.0.0.1:5000/api/expenses/future', expense, {
+          await axios.post(apiUrl('/api/expenses/future'), expense, {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
@@ -138,7 +139,8 @@ const FutureExpenseDemo = ({ setMessage }) => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://127.0.0.1:5000/api/expenses/future/process', {}, {
+      const response = await axios.post(apiUrl('/auth/login'), credentials);
+      const response = await axios.post(apiUrl('/api/expenses/future/process'), {}, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
