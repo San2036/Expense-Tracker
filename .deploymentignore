@@ -1,0 +1,50 @@
+# Ignore development files and directories
+.git
+.github
+.vscode
+.idea
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Node.js dependencies
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build outputs
+/frontend/build
+/frontend/dist
+/frontend/.next
+/frontend/out
+
+# Testing
+/coverage
+/test
+*.test.js
+*.spec.js
+
+# Logs
+logs
+*.log
+
+# Temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Documentation
+/docs
+*.md
+!README.md
+
+# Configuration files that should not be deployed
+.eslintrc
+.prettierrc
+.babelrc
+jest.config.js
+webpack.config.js

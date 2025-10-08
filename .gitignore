@@ -1,0 +1,49 @@
+# Dependency directories
+node_modules/
+
+# Build output
+# Frontend builds
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+# Backend builds (if you transpile)
+backend/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+.env.*
+
+# VS Code / IDE settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.swp
+*.swo
+*.pid
+
+# Azure deployment artifacts (created remotely)
+.scm/
+
+# Optional: Ignore local data uploads or cache
+uploads/
+cache/
+
+# Ignore package-lock files at root if you prefer one lock per package
+# package-lock.json
+# yarn.lock
