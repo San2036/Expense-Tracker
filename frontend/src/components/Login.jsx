@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { passwordRequirements } from '../utils/passwordValidator';
 import '../App.css';
-import BASE_URL from './config';
-console.log('🐞 BASE_URL at runtime →', BASE_URL);
 
 export default function Login({ onSwitchToRegister }) {
   const [formData, setFormData] = useState({
