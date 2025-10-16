@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from "axios";
 import { exportCurrentData } from '../utils/exportUtils';
-import { apiUrl } from '../utils/api';
 import ExpenseEditModal from './ExpenseEditModal';
 import "../App.css";
 
@@ -53,9 +52,9 @@ export default function ExpenseList({ expenses = [], setExpenses, setMessage }) 
     try {
       console.log("Delete request for expense:", exp);
       const dateStr = exp.date.split("T")[0]; // extract YYYY-MM-DD
-      console.log("Delete URL:", apiUrl(`/api/expenses/${dateStr}/${exp.id}`));
+      console.log("Delete URL:", `http://127.0.0.1:5000/api/expenses/${dateStr}/${exp.id}`);
       
-      const response = await axios.delete(apiUrl(`/api/expenses/${dateStr}/${exp.id}`), {
+      const response = await axios.delete(`http://127.0.0.1:5000/api/expenses/${dateStr}/${exp.id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

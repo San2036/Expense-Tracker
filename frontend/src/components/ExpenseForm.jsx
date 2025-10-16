@@ -21,7 +21,7 @@ export default function GroceryForm({ setMessage }) {
       expenseDate = new Date().toISOString();
     }
 
-    await axios.post("http://localhost:5000/api/expenses", {
+    await axios.post("/api/expenses", {
       title: itemName,
       amount,
       category,

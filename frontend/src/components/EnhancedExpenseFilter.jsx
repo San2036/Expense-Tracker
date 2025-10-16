@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { exportExpensesByDate } from '../utils/exportUtils';
 import "../App.css";
-import { apiUrl } from '../utils/api';
 
 export default function EnhancedExpenseFilter({ setExpenses }) {
   const [filterType, setFilterType] = useState('date'); // 'date' or 'month'
@@ -17,7 +16,7 @@ export default function EnhancedExpenseFilter({ setExpenses }) {
   const handleDateFilter = async () => {
     if (!date) return;
     try {
-      const res = await axios.get(apiUrl(`/api/expenses/${date}`), {
+      const res = await axios.get(`/api/expenses/${date}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -37,7 +36,7 @@ export default function EnhancedExpenseFilter({ setExpenses }) {
       
       console.log(`📅 Filtering expenses for ${month}: ${startDate} to ${endDate}`);
       
-      const res = await axios.get(apiUrl(`/api/expenses/export?startDate=${startDate}&endDate=${endDate}`), {
+      const res = await axios.get(`/api/expenses/export?startDate=${startDate}&endDate=${endDate}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

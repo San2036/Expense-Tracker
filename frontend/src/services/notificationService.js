@@ -65,7 +65,7 @@ class NotificationService {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch(apiUrl('/api/expenses/future/due'), {
+      const response = await fetch('/api/expenses/future/due', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -122,7 +122,7 @@ class NotificationService {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const response = await fetch(apiUrl('/api/expenses/future'), {
+      const response = await fetch('/api/expenses/future', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

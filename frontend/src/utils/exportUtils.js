@@ -1,4 +1,3 @@
-import { apiUrl } from './api';
 // Export utility functions for CSV and Excel generation
 
 // Format date for display
@@ -153,7 +152,7 @@ export const exportToExcel = (expenses, filename = 'expenses') => {
 // Export expenses by date range
 export const exportExpensesByDate = async (startDate, endDate, format = 'csv') => {
   try {
-    const response = await fetch(apiUrl(`/api/expenses/export?startDate=${startDate}&endDate=${endDate}`), {
+    const response = await fetch(`/api/expenses/export?startDate=${startDate}&endDate=${endDate}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

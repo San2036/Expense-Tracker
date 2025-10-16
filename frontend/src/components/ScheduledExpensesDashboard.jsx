@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { apiUrl } from '../utils/api';
 
 const ScheduledExpensesDashboard = ({ setMessage }) => {
   const [futureExpenses, setFutureExpenses] = useState([]);
@@ -16,7 +15,7 @@ const ScheduledExpensesDashboard = ({ setMessage }) => {
 
   const fetchFutureExpenses = async () => {
     try {
-      const response = await axios.get(apiUrl('/api/expenses/future'), {
+      const response = await axios.get('/api/expenses/future', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -33,7 +32,7 @@ const ScheduledExpensesDashboard = ({ setMessage }) => {
 
   const fetchDueExpenses = async () => {
     try {
-      const response = await axios.get(apiUrl('/api/expenses/scheduled'), {
+      const response = await axios.get('/api/expenses/future/due', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -48,7 +47,7 @@ const ScheduledExpensesDashboard = ({ setMessage }) => {
   const processExpenses = async () => {
     try {
       setLoading(true);
-      const response = await axios.post(apiUrl('/api/expenses/future/process'), {}, {
+      const response = await axios.post('/api/expenses/future/process', {}, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

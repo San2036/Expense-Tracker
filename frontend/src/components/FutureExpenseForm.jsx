@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { apiUrl } from '../utils/api';
 
 const FutureExpenseForm = ({ setMessage }) => {
   const [formData, setFormData] = useState({
@@ -106,7 +105,7 @@ const FutureExpenseForm = ({ setMessage }) => {
       console.log('Scheduling future expense:', submitData);
 
       const response = await axios.post(
-        apiUrl('/api/expenses/future'),
+        '/api/expenses/future',
         submitData,
         {
           headers: {

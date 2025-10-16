@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import "../App.css";
-import { apiUrl } from '../utils/api';
 
 export default function BillUpload({ setMessage }) {
   const [supermarket, setSupermarket] = useState("");
@@ -90,7 +89,7 @@ export default function BillUpload({ setMessage }) {
 
       // ✅ axios will set the correct Content-Type automatically
       const res = await axios.post(
-        apiUrl('/api/expenses/upload-bill'),
+        "http://127.0.0.1:5000/api/expenses/upload-bill",
         formData
       );
 
