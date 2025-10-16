@@ -6,7 +6,7 @@
       "direction": "in",
       "name": "req",
       "methods": ["post"],
-      "route": "api/expenses/upload-bill"
+      "route": "expenses/upload-bill"
     },
     {
       "type": "http",

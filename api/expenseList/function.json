@@ -6,7 +6,7 @@
       "direction": "in",
       "name": "req",
       "methods": ["get"],
-      "route": "api/expenses"
+      "route": "expenses"
     },
     {
       "type": "http",
