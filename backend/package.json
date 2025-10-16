@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "nodemon server.js",
-    "test:system": "node ../test-system.js"
+    "dev": "nodemon server.js",
+    "postinstall": "cd ../frontend && npm install && npm run build"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.28.0",
